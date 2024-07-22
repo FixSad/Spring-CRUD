@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<div>
+    <label>Name: </label>
+    <label th:text="${song.getName()}">value</label>
+</div>
+
+<div>
+    <label>Style: </label>
+    <label th:text="${song.getStyle()}">value</label>
+</div>
+
+<div>
+    <label>Duration(Sec): </label>
+    <label th:text="${song.getDurationSec()}">value</label>
+</div>
+
+<div>
+    <label>Artist: </label>
+    <label th:text="${song.getArtist()}">value</label>
+</div>
+
+<div>
+    <label>Label: </label>
+    <label th:text="${song.getLabel()}">value</label>
+</div>
+
+<div>
+    <label>Album: </label>
+    <label th:text="${song.getAlbum()}">value</label>
+</div>
+
+
+<a th:href="@{/music/{id}/edit(id=${song.getId()})}">Edit</a>
+<form th:method="post" th:action="@{/music/{id}(id=${song.getId()})}">
+    <input type="submit" value="Delete">
+</form>
+</body>
+</html>

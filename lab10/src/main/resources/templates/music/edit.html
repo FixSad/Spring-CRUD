@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Music</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/music/{id}/update(id=${song.getId()})}" th:object="${song}">
+    <label for="name">Enter song name</label>
+    <input type="text" th:field="*{name}" id="name">
+    <br>
+    <label for="style">Enter song style</label>
+    <input type="text" th:field="*{style}" id="style">
+    <br>
+    <label for="durationSec">Enter song Duration(Sec)</label>
+    <input type="number" th:field="*{durationSec}" id="durationSec">
+    <br>
+    <label for="artist">Enter song artist</label>
+    <input type="text" th:field="*{artist}" id="artist">
+    <br>
+    <label for="label">Enter song label</label>
+    <input type="text" th:field="*{label}" id="label">
+    <br>
+    <label for="album">Enter song album</label>
+    <input type="text" th:field="*{album}" id="album">
+    <br>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

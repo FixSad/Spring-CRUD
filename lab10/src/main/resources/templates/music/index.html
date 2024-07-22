@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+</head>
+<body>
+<h1 style="text-align: center">Songs</h1>
+<div style="margin:10px 70px 70px;
+            box-shadow:0px 35px 50px rgba(0,0,0,0.2);">
+    <table cellspacing="0" style="text-align: center;
+                              border:none;
+                              border-radius: 5px;
+                              font-size:12px;
+                              width: 100%;
+                              max-width: 100%;
+                              white-space: nowrap;
+                              background-color: white;
+                              border-collapse: collapse;
+                              font-weight:normal;">
+        <tr>
+            <th style="text-align: center; padding: 8px;">Name</th>
+            <th style="text-align: center; padding: 8px;">Style</th>
+            <th style="text-align: center; padding: 8px;">Duration(Sec)</th>
+            <th style="text-align: center; padding: 8px;">Artist</th>
+            <th style="text-align: center; padding: 8px;">Label</th>
+            <th style="text-align: center; padding: 8px;">Album</th>
+        </tr>
+        <tr th:each="song: ${song}" style="border: solid black">
+            <td  style="text-align: center;
+                    padding: 8px;
+                    border-right: 1px solid #f8f8f8;
+                    font-size: 12px;">
+                <a th:href="@{/music/{id}(id=${song.getId()})}"
+                   th:text="${song.getName()}"></a>
+            </td>
+            <td style="text-align: center;
+                   border-right: 1px solid #f8f8f8;
+                   font-size: 12px;
+                   padding: 8px;"
+                th:text="${song.style}"/>
+            <td style="text-align: center;
+                   border-right: 1px solid #f8f8f8;
+                   font-size: 12px;
+                   padding: 8px;"
+                th:text="${song.durationSec}"/>
+            <td style="text-align: center;
+                   border-right: 1px solid #f8f8f8;
+                   font-size: 12px;
+                   padding: 8px;"
+                th:text="${song.artist}"/>
+            <td style="text-align: center;
+                   border-right: 1px solid #f8f8f8;
+                   font-size: 12px;
+                   padding: 8px;"
+                th:text="${song.label}"/>
+            <td style="text-align: center;
+                   border-right: 1px solid #f8f8f8;
+                   font-size: 12px;
+                   padding: 8px;"
+                th:text="${song.album}"/>
+        </tr>
+    </table>
+</div>
+
+<a th:href="@{/music/add}">
+    <input type="submit" value="ADD">
+</a>
+
+</body>
+</html>
